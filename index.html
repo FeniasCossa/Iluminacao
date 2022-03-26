@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="”en”">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle de Lambada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCOT8g7hgaWZUgKwyxOo5_qBj-0AtjWYJ0",
+        authDomain: "iluminacaodelambadas2022.firebaseapp.com",
+        databaseURL: "https://iluminacaodelambadas2022-default-rtdb.firebaseio.com",
+        projectId: "iluminacaodelambadas2022",
+        storageBucket: "iluminacaodelambadas2022.appspot.com",
+        messagingSenderId: "574450536151",
+        appId: "1:574450536151:web:09ee07cbd4bb5faa6daa92",
+        measurementId: "G-G2R5TCM64B"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function ledOn() {
+        firebase.database().ref('SALA').set({
+            estado: 'LIGADA'
+        })
+    }
+
+    function ledOff() {
+        firebase.database().ref('SALA').set({
+            estado: 'DESLIGADA'
+        })
+    }
+
+    function ledOn1() {
+        firebase.database().ref('QUARTO1').set({
+            estado: 'LIGADA'
+        })
+    }
+
+    function ledOff1() {
+        firebase.database().ref('QUARTO1').set({
+            estado: 'DESLIGADA'
+        })
+    }
+
+    function ledOn2() {
+        firebase.database().ref('QUARTO2').set({
+            estado: 'LIGADA'
+        })
+    }
+
+    function ledOff2() {
+        firebase.database().ref('QUARTO2').set({
+            estado: 'DESLIGADA'
+        })
+    }
+</script>
+<script src="app.js" defer></script>
+
+<body>
+    <header>
+        <img src="/foto.png" alt="TME Education" width="120px">
+        <h1>TME Education</h1>
+        <h1>Arduino Week 2022</h1>
+        <h1>Faculdade de Cincias e Tecnologias</h1>
+    </header>
+
+    <h1>Controlo Remoto de Ilumincação</h1>
+    <fieldset>
+        <legend>Sala</legend>
+        <div>
+            <button class="led-on" onclick="ladOn()">Ligar</button>
+            <button class="led-off" onclick="ladOf()">Desligar</button>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset id="field">
+        <legend>Quarto1</legend>
+        <div>
+            <button class="led-on" onclick="ladOn()">Ligar</button>
+            <button class="led-off" onclick="ladOff()">Desligar</button>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Quarto2</legend>
+        <div>
+            <button class="led-on" onclick="ladOn()">Ligar</button>
+            <button class="led-off" onclick="ladOff()">Desligar</button>
+        </div>
+    </fieldset>
+    <footer>
+        <p>
+            <strong>
+                Direitos Reseravdos &copy; Fenias Cossa -UJC
+            </strong>
+        </p>
+    </footer>
+
+</body>
+
+</html>
